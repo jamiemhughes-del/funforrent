@@ -1,9 +1,0 @@
-{
-  "name": "funforrent",
-  "version": "2.3.0",
-  "type": "module",
-  "dependencies": {
-    "better-sqlite3": "^11.0.0",
-    "dotenv": "^16.4.7"
-  }
-}
