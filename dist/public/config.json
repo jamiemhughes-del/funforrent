@@ -1,0 +1,263 @@
+{
+  "business": {
+    "name": "Fun For Rent",
+    "tagline": "Surfers Paradise - Gold Coast",
+    "description": "100% Family Owned & Operated. Bike Hire, Electric Scooter Rental, Scooter Hire & Electric Trikes.",
+    "address": "Shop 6, 35 Orchid Ave, Surfers Paradise",
+    "phone": "0411 181 571",
+    "email": "funforrentgoldcoast@gmail.com",
+    "heroImage": "/items/goldcoast.jpg",
+    "freeWithHire": "Every hire includes FREE Lock + FREE Helmet"
+  },
+  "items": [
+    {
+      "id": 1,
+      "name": "Yellow Electric Scooter",
+      "description": "Our popular yellow Electric Scooters are the ideal way to get around Surfers Paradise. Easy to ride, no licence required. Long life batteries so you can ride up to 5 hours.",
+      "imageUrl": "/items/scooter.png",
+      "category": "Scooter",
+      "maxQuantity": 10,
+      "sortOrder": 1,
+      "specs": [
+        "Electric",
+        "No Licence",
+        "Up to 5hrs"
+      ],
+      "durations": [
+        {
+          "label": "1 Hour",
+          "hours": 1,
+          "price": 29
+        },
+        {
+          "label": "2 Hours",
+          "hours": 2,
+          "price": 48
+        },
+        {
+          "label": "3 Hours",
+          "hours": 3,
+          "price": 58
+        }
+      ],
+      "addons": [
+        {
+          "name": "Child Seat",
+          "price": 14
+        },
+        {
+          "name": "Child Trailer",
+          "price": 14
+        },
+        {
+          "name": "+2nd Hour",
+          "price": 19
+        },
+        {
+          "name": "+Passenger",
+          "price": 19
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "name": "Electric Trike",
+      "description": "Stand-up Electric Trikes perfect for beginners to experts. Adjustable speeds selectable depending on your ability. Can tow a child trailer. Seated trikes also available.",
+      "imageUrl": "/items/trike.png",
+      "category": "Trike",
+      "maxQuantity": 6,
+      "sortOrder": 2,
+      "specs": [
+        "Electric",
+        "Stand or Sit",
+        "Adjustable Speed"
+      ],
+      "durations": [
+        {
+          "label": "1 Hour",
+          "hours": 1,
+          "price": 29
+        },
+        {
+          "label": "2 Hours",
+          "hours": 2,
+          "price": 48
+        },
+        {
+          "label": "3 Hours",
+          "hours": 3,
+          "price": 58
+        }
+      ],
+      "addons": [
+        {
+          "name": "Child Trailer",
+          "price": 14
+        },
+        {
+          "name": "+2nd Hour",
+          "price": 29
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "name": "Push Bike",
+      "description": "Our very popular Push Bikes. Solid tyres so no flats. Solar lights that turn on automatically when dark. Supplied with free lock and helmet.",
+      "imageUrl": "/items/pushbike.png",
+      "category": "Bike",
+      "maxQuantity": 10,
+      "sortOrder": 3,
+      "specs": [
+        "Solid Tyres",
+        "Solar Lights",
+        "Free Lock + Helmet"
+      ],
+      "durations": [
+        {
+          "label": "2 Hours",
+          "hours": 2,
+          "price": 30
+        },
+        {
+          "label": "3 Hours",
+          "hours": 3,
+          "price": 39
+        },
+        {
+          "label": "All Day",
+          "hours": 8,
+          "price": 49
+        },
+        {
+          "label": "Overnight",
+          "hours": 24,
+          "price": 59
+        }
+      ],
+      "addons": [
+        {
+          "name": "Child Seat",
+          "price": 14
+        },
+        {
+          "name": "Child Trailer",
+          "price": 14
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "name": "Mountain Bike",
+      "description": "100% pedal power. Enjoy the sights and keep fit at the same time. Perfect for exploring the Gold Coast. Supplied with free lock and helmet.",
+      "imageUrl": "/items/mountainbike.png",
+      "category": "Bike",
+      "maxQuantity": 8,
+      "sortOrder": 4,
+      "specs": [
+        "Pedal Power",
+        "Free Lock + Helmet"
+      ],
+      "durations": [
+        {
+          "label": "3 Hours",
+          "hours": 3,
+          "price": 59
+        },
+        {
+          "label": "All Day",
+          "hours": 8,
+          "price": 99
+        }
+      ],
+      "addons": [
+        {
+          "name": "Child Trailer",
+          "price": 14
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "name": "E-Bike",
+      "description": "Electric assisted bike for effortless cruising around the Gold Coast. Perfect for longer rides with pedal assist.",
+      "imageUrl": "/items/ebike.jpg",
+      "category": "E-Bike",
+      "maxQuantity": 5,
+      "sortOrder": 5,
+      "specs": [
+        "Electric Assist",
+        "Free Lock + Helmet"
+      ],
+      "durations": [
+        {
+          "label": "2 Hours",
+          "hours": 2,
+          "price": 78
+        },
+        {
+          "label": "3 Hours",
+          "hours": 3,
+          "price": 93
+        },
+        {
+          "label": "All Day",
+          "hours": 8,
+          "price": 129
+        },
+        {
+          "label": "Overnight",
+          "hours": 24,
+          "price": 189
+        }
+      ],
+      "addons": [
+        {
+          "name": "Child Trailer",
+          "price": 14
+        }
+      ],
+      "isActive": true
+    },
+    {
+      "id": 6,
+      "name": "Kids 3-Wheeler",
+      "description": "Safe and stable 3-wheeler for the little ones. Easy to pedal and fun to ride.",
+      "imageUrl": "https://www.mytopia.com.au/rovo-kids-3-wheel-electric-scooter-ages-3-8-adjustable-height-folding-lithium-battery-blue",
+      "category": "Kids",
+      "maxQuantity": 6,
+      "sortOrder": 6,
+      "specs": [
+        "Kids",
+        "Stable",
+        "Free Helmet"
+      ],
+      "durations": [
+        {
+          "label": "Standard",
+          "hours": 3,
+          "price": 29
+        }
+      ],
+      "addons": [],
+      "isActive": true
+    }
+  ],
+  "terms": [
+    "I am 18+ years old. Children must be supervised by an adult at all times.",
+    "I agree to the terms of hire including damage liability. Equipment must be returned in the same condition.",
+    "I will wear a helmet at all times (supplied free). I understand road rules apply to all equipment.",
+    "I understand that equipment must be returned by the agreed time. Late returns incur additional charges.",
+    "I understand a security bond is payable at time of collection and will be refunded when equipment is returned in good condition."
+  ],
+  "hours": {
+    "open": 9,
+    "close": 20,
+    "bufferMinutes": 30
+  },
+  "blockoutDates": []
+}
