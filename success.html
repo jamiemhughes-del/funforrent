@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Confirmed - FunForRent</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #F8F8FF;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .card {
+    background: white;
+    border-radius: 24px;
+    padding: 48px 32px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(34,0,255,0.08);
+  }
+  .icon {
+    width: 64px;
+    height: 64px;
+    background: #E8E8FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 28px;
+  }
+  h1 {
+    color: #2200ff;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  p {
+    color: #2200ff;
+    opacity: 0.6;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .ref {
+    background: #F8F8FF;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 20px 0;
+    font-family: monospace;
+    font-size: 14px;
+    color: #2200ff;
+    font-weight: 700;
+  }
+  .btn {
+    display: inline-block;
+    background: #2200ff;
+    color: white;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 16px;
+  }
+  .loading {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+</style>
+</head>
+<body>
+<div class="card" id="card">
+  <div class="icon loading" id="icon">⏳</div>
+  <h1 id="title">Processing your booking...</h1>
+  <p id="message">Please wait while we confirm your payment.</p>
+  <div class="ref" id="ref" style="display:none;"></div>
+  <a href="/" class="btn" id="btn" style="display:none;">Book More Equipment</a>
+</div>
+
+<script>
+(async () => {
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get('ref') || '';
+  const paymentId = params.get('paymentId') || '';
+
+  const icon = document.getElementById('icon');
+  const title = document.getElementById('title');
+  const message = document.getElementById('message');
+  const refBox = document.getElementById('ref');
+  const btn = document.getElementById('btn');
+
+  try {
+    // Confirm the booking with the server
+    const res = await fetch('/api/booking-confirm', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ bookingRef: ref, paymentId, paymentStatus: 'completed' })
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      icon.textContent = '✅';
+      icon.classList.remove('loading');
+      title.textContent = 'Booking Confirmed!';
+      if (data.emailStatus && (!data.emailStatus.business || !data.emailStatus.customer)) {
+        message.innerHTML = 'Thank you for your booking. <strong>Note:</strong> We had trouble sending confirmation emails. Please save your booking reference.<br><br>Please bring your ID when collecting your equipment.';
+      } else {
+        message.innerHTML = 'Thank you for your booking. A confirmation email has been sent to you.<br><br>Please bring your ID when collecting your equipment.';
+      }
+      if (ref) {
+        refBox.textContent = 'Ref: ' + ref;
+        refBox.style.display = 'block';
+      }
+      btn.style.display = 'inline-block';
+    } else {
+      throw new Error(data.error || 'Confirmation failed');
+    }
+  } catch (err) {
+    icon.textContent = '⚠️';
+    icon.classList.remove('loading');
+    title.textContent = 'Payment Received';
+    message.innerHTML = 'Your payment was received but we could not confirm your booking automatically.<br><strong>Error: ' + (err.message || 'Unknown error') + '</strong><br><br>Please call us on <strong>0411 181 571</strong> with your reference: <strong>' + (ref || 'N/A') + '</strong>';
+    if (ref) {
+      refBox.textContent = 'Ref: ' + ref;
+      refBox.style.display = 'block';
+    }
+    btn.style.display = 'inline-block';
+  }
+})();
+</script>
+</body>
+</html>
